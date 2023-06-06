@@ -1,0 +1,25 @@
+'use client'
+import axios from 'axios';
+
+export const getQr = (setState)=>{
+    axios.get('http://localhost:3001/'+'api/qr').then(res=>{
+        console.log('res api: '+res.data);
+        setState(res.data);
+    }).catch(err=>{
+        console.log(err)
+    })
+}
+export const sendMessage = (value)=>{
+    axios.post('http://localhost:3001/'+'api/sendplus',{...value}).then(res=>{
+        console.log('res api: '+res.data);
+    }).catch(err=>{
+        console.log(err)
+    })
+}
+export const logout =()=>{
+    axios.get('http://localhost:3001/'+'api/logout').then(res=>{
+        console.log('res api: '+res.data);
+    }).catch(err=>{
+        console.log(err)
+    })
+}
